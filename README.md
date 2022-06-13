@@ -46,6 +46,7 @@
 </br>
 
 ## 4. ERD 설계
+![erd](https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png)
 
 
 </br>
