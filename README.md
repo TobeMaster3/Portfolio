@@ -62,6 +62,9 @@
 <summary><b>핵심 기능 설명 보기</b></summary>
 <div markdown="1">
   
+<div>
+</details>
+  
 </br></br>
 
 
@@ -72,6 +75,9 @@
 <details>
 <summary><b>추가 변경사항 보기</b></summary>
 <div markdown="1">
+  
+<div>
+</details>
   
 </br></br>
 
