@@ -83,6 +83,17 @@
 
 ## 7. 트러블 슈팅
 
+<details>
+<summary><b>기존코드</b></summary>
+<div markdown="1">
+</div>
+</details>
+
+<details>
+<summary><b>개선된 코드</b></summary>
+<div markdown="1">
+</div>
+</details>
 
 </br></br>
 
