@@ -41,7 +41,8 @@
 
 #### `개발 환경`
 <p align="center">
-<img src="https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png">
+<img src="https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png"
+     width="200" height="400">
 </p>
 
 </br></br>
