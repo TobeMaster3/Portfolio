@@ -58,12 +58,21 @@
 ## 5. 핵심 기능
 
 
+<details>
+<summary><b>핵심 기능 설명 보기</b></summary>
+<div markdown="1">
+  
 </br></br>
 
 
 ## 6. 추가 변경사항
+팀 프로젝트를 완성하고 나서 완성하지 못한 부분이나
+미흡한점을 보완하고자 홀로 진행하였습니다.
 
-
+<details>
+<summary><b>추가 변경사항 보기</b></summary>
+<div markdown="1">
+  
 </br></br>
 
 ## 7. 트러블 슈팅
