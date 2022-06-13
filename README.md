@@ -19,16 +19,14 @@
 #### `Back-end`
   - Java 8
   - Spring Boot 2.3
-  - Gradle
-  - Spring Data JPA
-  - QueryDSL
-  - H2
-  - MySQL 5.7
-  - Spring Security
-  - Jsoup
+
 #### `Front-end`
-  - Vue.js 3.0
-  - Element UI
+  - HTML
+  - css
+  - JavaScript
+
+![qwqw](https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png)
+
 
 </br>
 
