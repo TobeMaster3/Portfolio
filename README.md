@@ -39,7 +39,7 @@
   - css
   - JavaScript
 
-#### `개발 환경`
+#### `Develpment Environment`
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png"
      width="1000" height="400">
