@@ -40,14 +40,17 @@
   - JavaScript
 
 #### `개발 환경`
-![qwqw](https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png">
+</p>
 
 
 </br>
 
 ## 4. ERD 설계
-![erd](https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png)
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png">
+</p>
 
 </br>
 
