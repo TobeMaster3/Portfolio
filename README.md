@@ -31,8 +31,8 @@
 
 ## 3. 사용 기술
 #### `Back-end`
-  - Java 8
-  - Spring Boot 2.3
+  - Java 11
+  - Spring Boot 5.3.2
 
 #### `Front-end`
   - HTML
