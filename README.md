@@ -123,15 +123,35 @@
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
-  <summary><b>Mapper.xml 코드확인</b></summary>
+  <summary><b>개선된 코드</b></summary>
   <div markdown="1">
-    
-    ```java
-    
-    ```
-    
+
+  ~~~java
+  /**
+   * 게시물 필터 (Tag Name)
+   */
+  @Override
+  public Page<Post> findAllByTagName(String tagName, Pageable pageable) {
+
+      QueryResults<Post> results = queryFactory
+              .selectFrom(post)
+              .innerJoin(postTag)
+                  .on(post.idx.eq(postTag.post.idx))
+              .innerJoin(tag)
+                  .on(tag.idx.eq(postTag.tag.idx))
+              .where(tag.name.eq(tagName))
+              .orderBy(post.idx.desc())
+                  .limit(pageable.getPageSize())
+                  .offset(pageable.getOffset())
+              .fetchResults();
+
+      return new PageImpl<>(results.getResults(), pageable, results.getTotal());
+  }
+  ~~~
+
   </div>
   </details>
+
 
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
