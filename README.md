@@ -125,9 +125,10 @@
   <details>
   <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
   <div markdown="1">
-  - Mybatis의 사용목적 중 하나인 SQL문을 분리하기 위해 만든다.
+  
+    - sql문 분리
 
-  ~~~html
+  ```html
   /**
    * CommMapper.xml
    */
@@ -256,7 +257,7 @@
           ORDER BY nseq desc
       </select>
   </mapper>
-  ~~~
+  ```
 
   </div>
   </details>
