@@ -124,7 +124,6 @@
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
   <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
-  > DAO로부터 SQL문을 분리하기 위해 만든다.
   <div markdown="1">
   
 
