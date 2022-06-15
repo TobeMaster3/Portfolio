@@ -125,7 +125,8 @@
   <details>
   <summary><b>Mapper.xml 코드확인</b></summary>
   <div markdown="1">
-    ~~~java
+    
+    ~~~xml
     /**
     * CommMapper.xml
     */
@@ -256,7 +257,7 @@
           </mapper>
     
     ~~~
-  </div>
+    </div>
   </details>
 
   
