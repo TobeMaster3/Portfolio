@@ -125,7 +125,8 @@
   <details>
   <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
   
-  - 나나나나
+  </br>
+  - Mybatis 사용목적 중 하나인 SQL문을 분리하기 위해 작성한다.
   <div markdown="1">
 
   ```html
