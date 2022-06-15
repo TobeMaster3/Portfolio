@@ -124,8 +124,9 @@
   Mybatis 프레임워크를 적용하기 위해서 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
   <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
+  
+  - 나나나나
   <div markdown="1">
-    -  
 
   ```html
   <?xml version="1.0" encoding="UTF-8"?>
