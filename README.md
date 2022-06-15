@@ -123,7 +123,7 @@
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
-  <summary><b>Mapper.xml 코드 확인</b></summary>
+  <summary><b>Mapper.xml 코드 확인 ✔️</b></summary>
   <div markdown="1">
 
   ~~~html
@@ -259,9 +259,16 @@
 
   </div>
   </details>
+    
+  </br>
+  
+  
+    
 
 
   
+  
+  </br>
 #### 6-2 구현하지 못했던 게시물 검색 기능
   프로젝트 구현 당시 다른 팀원이 검색기능을 구현 못했지만, 검색기능은 게시판 있어서  
   필수인 기능이라고 생각했고 추가 진행사항으로 결정하고 실행에 옮겼습니다.
