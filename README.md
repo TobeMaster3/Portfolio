@@ -92,7 +92,7 @@
 
 </br>
 
-<details>
+   <details>
 <summary><b>추가 변경사항 보기</b></summary>
 <div markdown="1">
 
