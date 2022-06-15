@@ -103,6 +103,8 @@
   - 유지보수성 향상
   - 이식성 향상
   
+  </br>
+  기존 프로젝트의 디렉터리구조를 Mybatis를 적용시켜 아래와 같은 디렉터리 구조로 만들었습니다.
   <p align="center">
   <img src="https://user-images.githubusercontent.com/107043926/173869875-78432eca-94d9-4c96-88d4-de3a37f387d8.png">
   </p>
@@ -112,7 +114,7 @@
   </p>
     
   </br>
-  Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정해야 했습니다.
+  Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   - Mapper.xml :check: 코드확인
   - Mapper.java :check: 코드확인
   - Service.java :check: 코드확인
