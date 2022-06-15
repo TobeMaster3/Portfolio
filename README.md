@@ -103,6 +103,14 @@
   - 유지보수성 향상
   - 이식성 향상
   
+  <p align="center">
+  <img src="https://user-images.githubusercontent.com/107043926/173869875-78432eca-94d9-4c96-88d4-de3a37f387d8.png">
+  </p>
+    
+  <p align="center">
+  <img src="https://user-images.githubusercontent.com/107043926/173869968-3ba6bafc-bd90-4927-b508-43c9d492c635.png">
+  </p>
+    
   </br>
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
