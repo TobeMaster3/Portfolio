@@ -126,7 +126,7 @@
   <summary><b>Mapper.xml 코드확인</b></summary>
   <div markdown="1">
     
-    ~~~xml
+    ```java
     /**
     * CommMapper.xml
     */
@@ -254,11 +254,11 @@
             WHERE type = 'f' 
             ORDER BY nseq desc
         </select>
-          </mapper>
+     </mapper>
     
-    ~~~
-    </div>
-  </details>
+    ```
+   </div>
+ </details>
 
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
