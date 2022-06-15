@@ -123,12 +123,12 @@
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
-  <summary><b>Mapper.xml 코드 확인 📍 </b></summary>
+  <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
   <div markdown="1">
 
   ~~~html
   /**
-   * CommMapper.xml 코드
+   * CommMapper.xml
    */
   <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE mapper 
@@ -262,13 +262,290 @@
     
   </br>
   
-  
-    
+  <details>
+  <summary><b>CommMapper.java 코드 확인 📍 </b></summary>
+  <div markdown="1">
+
+  ~~~java
+  /**
+   * CommMapper.java 
+   */
+  package com.camper.mapper;
+
+  import java.util.ArrayList;
+
+  import org.apache.ibatis.annotations.Mapper;
+
+  import com.camper.model.BoardTO;
+  import com.camper.model.NboardTO;
 
 
-  
+  @Mapper
+  public interface CommMapper {
+
+    // 커뮤니티 메인페이지 3개 List
+    public List<BoardTO> boardMain( BoardTO to );
+
+    // 커뮤니티 캠핑로그 List
+    public List<BoardTO> camplogList( BoardTO to );
+
+    // 커뮤니티 캠핑꿀팁 List
+    public List<BoardTO> camptipList( BoardTO to );
+
+    // 커뮤니티 캠핑가자 List
+    public List<BoardTO> campgoList( BoardTO to );
+
+    // 커뮤니티 게시글 보기
+    public void viewBoard( BoardTO to );
+
+    // 커뮤니티 게시글 등록
+    public void writeBoard( BoardTO to );
+
+    // 커뮤니티 게시글 삭제
+    public void deleteBoard( BoardTO to );
+
+    // 커뮤니티 게시글 수정
+    public void modifyBoard( BoardTO to );
+
+    // 공지사항 게시글 List
+    public List<BoardTO> noticeList( BoardTO to );
+
+    // 공지사항 게시글 보기
+    public void noticeView( BoardTO to );
+
+    // FAQ 게시글 List
+    public List<NboardTO> faqList( NboardTO to );
+  }
+  ~~~
+
+  </div>
+  </details>
   
   </br>
+   
+  <details>
+  <summary><b>CommService.java 코드 확인 📍 </b></summary>
+  <div markdown="1">
+
+  ~~~java
+  /**
+   * CommService.java
+   */
+  package com.camper.service;
+
+  import java.util.ArrayList;
+
+  import com.camper.model.BoardTO;
+  import com.camper.model.NboardTO;
+
+  public interface CommService {
+
+      // 커뮤니티 메인페이지 3개 List
+      public List<BoardTO> boardMain( BoardTO to ) throws Exception;
+
+      // 커뮤니티 캠핑로그 List
+      public List<BoardTO> camplogList( BoardTO to ) throws Exception;
+
+      // 커뮤니티 캠핑꿀팁 List
+      public List<BoardTO> camptipList( BoardTO to ) throws Exception;
+
+      // 커뮤니티 캠핑가자 List
+      public List<BoardTO> campgoList( BoardTO to ) throws Exception;
+
+      // 커뮤니티 게시글 보기
+      public void viewBoard( BoardTO to ) throws Exception;
+
+      // 커뮤니티 게시글 등록
+      public void writeBoard( BoardTO to ) throws Exception;
+
+      // 커뮤니티 게시글 삭제
+      public void deleteBoard( BoardTO to ) throws Exception;
+
+      // 커뮤니티 게시글 수정
+      public void modifyBoard( BoardTO to ) throws Exception;
+
+      // 공지사항 게시글 List
+      public List<BoardTO> noticeList( BoardTO to ) throws Exception;
+
+      // 공지사항 게시글 보기
+      public void noticeView( BoardTO to ) throws Exception;
+
+      // FAQ 게시글 List
+      public List<NboardTO> faqList( NboardTO to ) throws Exception;
+    }
+  ~~~
+
+  </div>
+  </details>
+    
+  </br>
+
+  <details>
+  <summary><b>CommServiceImpl 코드 확인 📍 </b></summary>
+  <div markdown="1">
+
+  ~~~java
+  /**
+   * 게시물 필터 (Tag Name)
+   */
+  package com.camper.service.impl;
+
+  import java.util.List;
+
+  import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.stereotype.Service;
+
+  import com.camper.mapper.CommMapper;
+  import com.camper.model.BoardTO;
+  import com.camper.model.NboardTO;
+  import com.camper.service.CommService;
+
+  import lombok.extern.slf4j.Slf4j;
+
+  @Slf4j
+  @Service
+  public class CommServiceImpl implements CommService {
+
+    @Autowired
+    public CommMapper commMapper;
+
+    @Override
+    public List<BoardTO> boardMain(BoardTO to) throws Exception {
+      List<BoardTO> list = null;
+
+      try {
+        list = commMapper.boardMain( to );
+      } catch (Exception e) {
+        log.error( "[게시판 메인 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+
+    @Override
+    public List<BoardTO> camplogList(BoardTO to) {
+      List<BoardTO> list = null;
+
+      try {
+        list = commMapper.campgoList( to );
+      } catch (Exception e) {
+        log.error( "[게시판 리스트 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+    @Override
+    public List<BoardTO> camptipList(BoardTO to) throws Exception {
+      List<BoardTO> list = null;
+
+      try {
+        list = commMapper.camptipList( to );
+      } catch (Exception e) {
+        log.error( "[게시판 리스트 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+    @Override
+    public List<BoardTO> campgoList(BoardTO to) throws Exception {
+      List<BoardTO> list = null;
+
+      try {
+        list = commMapper.campgoList( to );
+      } catch (Exception e) {
+        log.error( "[게시판 리스트 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+    @Override
+    public void viewBoard(BoardTO to) throws Exception {
+      try {
+        commMapper.viewBoard( to );
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        log.error( "[게시글 보기 에러]" + e.getMessage() );
+      }
+    }
+
+    @Override
+    public void writeBoard(BoardTO to) throws Exception {
+      try {
+        commMapper.writeBoard( to );
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        log.error( "[게시판 글등록 에러]" + e.getMessage() );
+      }
+    }
+
+    @Override
+    public void deleteBoard(BoardTO to) throws Exception {
+      try {
+        commMapper.deleteBoard( to );
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        log.error( "[게시판 글삭제 에러]" + e.getMessage() );
+      }
+    }
+
+    @Override
+    public void modifyBoard(BoardTO to) throws Exception {
+      try {
+        commMapper.modifyBoard( to );
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        log.error( "[게시판 글수정 에러]" + e.getMessage() );
+      }
+    }
+
+    @Override
+    public List<BoardTO> noticeList(BoardTO to) throws Exception {
+      List<BoardTO> list = null;
+
+      try {
+        list = commMapper.noticeList( to );
+      } catch (Exception e) {
+        log.error( "[공지사항 리스트 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+    @Override
+    public void noticeView(BoardTO to) throws Exception {
+      try {
+        commMapper.noticeView( to );
+      } catch (Exception e) {
+        // TODO Auto-generated catch block
+        log.error( "[공지사항 글보기 에러]" + e.getMessage() );
+      }
+    }
+
+    @Override
+    public List<NboardTO> faqList(NboardTO to) throws Exception {
+      List<NboardTO> list = null;
+
+      try {
+        list = commMapper.faqList( to );
+      } catch (Exception e) {
+        log.error( "[문의응답 리스트 에러]" + e.getMessage() );
+      }
+
+      return list;
+    }
+
+  }
+  ~~~
+
+  </div>
+  </details>
+    
+  </br>
+  
 #### 6-2 구현하지 못했던 게시물 검색 기능
   프로젝트 구현 당시 다른 팀원이 검색기능을 구현 못했지만, 검색기능은 게시판 있어서  
   필수인 기능이라고 생각했고 추가 진행사항으로 결정하고 실행에 옮겼습니다.
