@@ -123,7 +123,7 @@
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
   <details>
-  <summary><b>Mapper.xml 코드 확인 ✔️</b></summary>
+  <summary><b>Mapper.xml 코드 확인 📍 </b></summary>
   <div markdown="1">
 
   ~~~html
