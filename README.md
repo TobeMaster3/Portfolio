@@ -122,7 +122,7 @@
   </br>
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
-  - Mapper.xml ✔️ 코드확인
+  - Mapper.xml ✔️ <details><summary><b>코드확인</b></summary><div markdown="1">
   - Mapper.java ✔️ 코드확인
   - Service.java ✔️ 코드확인
   - ServiceImpl.java ✔️ 코드확인
