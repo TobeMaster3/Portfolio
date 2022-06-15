@@ -263,6 +263,9 @@
   
   <details>
   <summary><b>CommMapper.java 코드 확인 📍 </b></summary>
+    
+  - CommMapper.xml 파일에 기재된 SQL문을 호출하기 위한 인터페이스(Interface)이다.
+  - 메서드명은 CommMapper.xml의 namespace ID와 맞춰야 한다.
   <div markdown="1">
 
   ~~~java
@@ -324,6 +327,9 @@
    
   <details>
   <summary><b>CommService.java 코드 확인 📍 </b></summary>
+    
+  - 해당 Service에서 수행하는 기능들을 먼저 정의한 것이다.
+  - Controller는 화면에서 넘어오는 매개변수들을 이용해 Service객체들을 호출한다.
   <div markdown="1">
 
   ~~~java
@@ -381,6 +387,9 @@
 
   <details>
   <summary><b>CommServiceImpl 코드 확인 📍 </b></summary>
+    
+  - CommService.java를 부모로 상속받아 구현하게 된다.
+  - CommServiceImpl.java는 비즈니스 로직 즉, 기능을 구현하는 구현부를 수행하는 역할을 맡는다.
   <div markdown="1">
 
   ~~~java
