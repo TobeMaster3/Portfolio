@@ -126,9 +126,7 @@
   <summary><b>CommMapper.xml 코드 확인 📍 </b></summary>
   <div markdown="1">
   
-     - 1.5대 버전에서는 Controller의 인자로 Principal을 넘기면 principal.getName(0에서 바로 꺼내서 쓸 수 있었는데, 2.0대 버전에서는 principal.getName()의 경우 principal 객체.toString()을 반환한다.
-    - 1.5대 버전에서 principal을 사용하는 경우
-    - 아래와 같이 사용했다면,
+    - 왜안되
 
   ```html
   /**
