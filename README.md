@@ -122,11 +122,11 @@
   </br>
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
-  - Mapper.xml :check: 코드확인
-  - Mapper.java :check: 코드확인
-  - Service.java :check: 코드확인
-  - ServiceImpl.java :check: 코드확인
-  - Controller.java :check: 코드확인
+  - Mapper.xml ✔️ 코드확인
+  - Mapper.java ✔️ 코드확인
+  - Service.java ✔️ 코드확인
+  - ServiceImpl.java ✔️ 코드확인
+  - Controller.java ✔️ 코드확인
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
   프로젝트 구현 당시 다른 팀원이 검색기능을 구현 못했지만, 검색기능은 게시판 있어서  
