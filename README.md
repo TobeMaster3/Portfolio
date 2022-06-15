@@ -545,6 +545,22 @@
   </details>
     
   </br>
+    
+  <details>
+  <summary><b>CommController.java 코드 확인 📍 </b></summary>
+  <div markdown="1">
+
+  ~~~java
+  /**
+   * COmmController.java
+   */
+  
+  ~~~
+
+  </div>
+  </details>
+    
+  </br>
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
   프로젝트 구현 당시 다른 팀원이 검색기능을 구현 못했지만, 검색기능은 게시판 있어서  
