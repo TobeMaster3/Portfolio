@@ -122,11 +122,143 @@
   </br>
   
   Mybatis 프레임워크를 적용하기 위해서는 4개의 파일을 작성하고 Controller을 수정했습니다.
-  ✔️ <details><summary><b>Mapper.xml 코드확인</b></summary><div markdown="1"></div>
-  - Mapper.java ✔️ 코드확인
-  - Service.java ✔️ 코드확인
-  - ServiceImpl.java ✔️ 코드확인
-  - Controller.java ✔️ 코드확인
+  <details>
+  <summary><b>Mapper.xml 코드확인</b></summary>
+  <div markdown="1">
+    ~~~java
+    /**
+    * CommMapper.xml
+    */
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE mapper 
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.camper.mapper.CommMapper">
+        <!-- 게시판 Mapper.xml -->
+
+        <!-- 커뮤니티 메인페이지 3개 List -->
+        <select id="boardMain" parameterType="com.camper.model.BoardTO" resultType="com.camper.model.BoardTO">
+            SELECT pseq
+                    , title
+                    , nick
+                    , type
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+            FROM p_table
+            WHERE type="#{type}"
+            ORDER BY pseq desc limit 0,5
+        </select>
+
+
+        <!-- 커뮤니티 캠핑로그 List -->
+        <select id="camplogList" parameterType="com.camper.model.BoardTO" resultType="com.camper.model.BoardTO">
+            SELECT pseq
+                    , title
+                    , nick
+                    , type
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+            FROM p_table
+            WHERE type="l"
+            ORDER BY pseq desc
+
+
+        <!-- 커뮤니티 캠핑꿀팁 List -->
+        <select id="camplogList" parameterType="com.camper.model.BoardTO" resultType="com.camper.model.BoardTO">
+            SELECT pseq
+                    , title
+                    , nick
+                    , type
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+            FROM p_table
+            WHERE type="t"
+            ORDER BY pseq desc
+        </select>
+
+
+        <!-- 커뮤니티 캠핑가자 List -->
+        <select id="camplogList" parameterType="com.camper.model.BoardTO" resultType="com.camper.model.BoardTO">
+            SELECT pseq
+                    , title
+                    , nick
+                    , type
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+            FROM p_table
+            WHERE type="g"
+            ORDER BY pseq desc
+
+
+        <!-- 커뮤니티 게시물 보기 -->
+        <select id="viewBoard" pparameterType="com.camper.model.BoardTO">
+            SELECT title
+                    , nick
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+                    , content
+                    , type 
+            FROM p_table 
+            WHERE pseq = #{pseq}
+        </select>   
+
+
+        <!-- 커뮤니티 게시물 등록 -->
+        <insert id="writeBoard" parameterType="com.camper.model.BoardTO">
+            INSERT INTO p_table 
+            VALUES( 0, #{title}, #{nick}, #{pwd}, #{content}, #{type}, now(), #{heart}, #{preply} )
+
+
+        <!-- 커뮤니티 게시물 삭제 -->
+        <delete id="deleteBoard" parameterType="com.camper.model.BoardTO">
+            DELETE FROM p_table 
+            WHERE pseq = #{pseq} AND pwd = #{pwd}
+        </delete>
+
+
+        <!-- 게시물 수정 -->
+        <update id="modifyBoard" parameterType="com.camper.model.BoardTO">
+            UPDATE p_table SET title = #{title}, content = #{content} 
+            WHERE pseq = #{pseq}
+        </update>
+
+
+        <!-- 공지사항 List -->
+        <select id="noticeList" parameterType="com.camper.model.BoardTO" resultType="com.camper.model.BoardTO">
+            SELECT nseq
+                    , title
+                    , nick
+                    , type
+                    , date_format( wdate, '%y-%m-%d' ) wdate 
+            FROM n_board 
+            WHERE type = 'n'
+            ORDER BY nseq desc
+        </select>
+
+
+        <!-- 공지사항 게시물 보기 -->
+        <select id="noticeView" parameterType="com.camper.model.BoardTO">
+            SELECT title
+                    , nick
+                    , date_format( wdate, '%y-%m-%d' ) wdate
+                    , content
+                    , type
+            FROM n_board 
+            WHERE nseq = #{nseq}
+        </select>  
+
+
+        <!-- FAQ List -->
+        <select id="faqList" parameterType="com.camper.model.NboardTO" resultType="com.camper.model.NboardTO">
+            SELECT nseq
+                    , title
+                    , nick
+                    , content
+                    , date_format(wdate, '%Y-%m-%d' ) wdate
+            FROM n_board 
+            WHERE type = 'f' 
+            ORDER BY nseq desc
+        </select>
+          </mapper>
+    
+    ~~~
+  </div>
+  </details>
+
   
 #### 6-2 구현하지 못했던 게시물 검색 기능
   프로젝트 구현 당시 다른 팀원이 검색기능을 구현 못했지만, 검색기능은 게시판 있어서  
