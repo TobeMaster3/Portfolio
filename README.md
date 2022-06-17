@@ -579,7 +579,37 @@
   팀 프로젝트를 진행하면서 수업내용을 참고하여 HTML코드 내에 java 코드인 스크립틀릿을 사용하였지만  
   현재는 가독성이 떨어지고 View와 비즈니스 로직의 분리로 인해 JSTL을 많이 사용하므로 추세에 맞게   
   JSTL로 변경하는 작업을 진행하였습니다.
+    
+  <details>
+  <summary><b>JSTL 적용 EX 1) 📍 </b></summary>
+  <div markdown="1">
+
+
+
+  </div>
+  </details>
   
+  </br>
+    
+  <details>
+  <summary><b>JSTL 적용 EX 2) 📍 </b></summary>
+  <div markdown="1">
+
+
+
+  </div>
+  </details>
+  
+  </br>
+    
+  <details>
+  <summary><b>JSTL 적용 EX 3) 📍 </b></summary>
+  <div markdown="1">
+
+
+
+  </div>
+  </details>
   </br>
   
 ### 6-3 서버 구축 및 배포
