@@ -121,7 +121,7 @@
   
   Mybatis 프레임워크를 적용하기 위해서 4개의 파일을 작성하고 Controller를 수정했습니다.
   <details>
-  <summary><b>CommMapper.xml 코드 확인 ✅</b></summary>
+  <summary><b>CommMapper.xml 코드 확인 🔘 </b></summary>
     
   - Mybatis 사용목적 중 하나인 SQL문을 분리하기 위해 작성한다.
   <div markdown="1">
