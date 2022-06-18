@@ -121,7 +121,7 @@
   
   Mybatis 프레임워크를 적용하기 위해서 4개의 파일을 작성하고 Controller를 수정했습니다.
   <details>
-  <summary><b>CommMapper.xml 코드 확인 🔘 </b></summary>
+  <summary><b>CommMapper.xml 코드 확인</b></summary>
     
   - Mybatis 사용목적 중 하나인 SQL문을 분리하기 위해 작성한다.
   <div markdown="1">
@@ -265,7 +265,7 @@
   </br>
   
   <details>
-  <summary><b>CommMapper.java 코드 확인 📍 </b></summary>
+  <summary><b>CommMapper.java 코드 확인</b></summary>
     
   - CommMapper.xml 파일에 기재된 SQL문을 호출하기 위한 인터페이스(Interface)이다.
   - 메서드명은 CommMapper.xml의 namespace ID와 맞춰야 한다.
@@ -329,7 +329,7 @@
   </br>
    
   <details>
-  <summary><b>CommService.java 코드 확인 📍 </b></summary>
+  <summary><b>CommService.java 코드 확인</b></summary>
     
   - 해당 Service에서 수행하는 기능들을 먼저 정의한 것이다.
   - Controller는 화면에서 넘어오는 매개변수들을 이용해 Service객체들을 호출한다.
@@ -389,7 +389,7 @@
   </br>
 
   <details>
-  <summary><b>CommServiceImpl 코드 확인 📍 </b></summary>
+  <summary><b>CommServiceImpl 코드 확인</b></summary>
     
   - CommService.java를 부모로 상속받아 구현하게 된다.
   - CommServiceImpl.java는 비즈니스 로직 즉, 기능을 구현하는 구현부를 수행하는 역할을 맡는다.
@@ -558,7 +558,7 @@
   </br>
     
   <details>
-  <summary><b>CommController.java 코드 확인 📍 </b></summary>
+  <summary><b>CommController.java 코드 확인</b></summary>
   <div markdown="1">
 
   ~~~java
@@ -579,7 +579,7 @@
   JSTL로 변경하는 작업을 진행하였습니다.
     
   <details>
-  <summary><b>JSTL 적용 EX 1) 📍 </b></summary>
+  <summary><b>JSTL 적용 EX 1) </b></summary>
   <div markdown="1">
 
 
@@ -590,7 +590,7 @@
   </br>
     
   <details>
-  <summary><b>JSTL 적용 EX 2) 📍 </b></summary>
+  <summary><b>JSTL 적용 EX 2) </b></summary>
   <div markdown="1">
 
 
@@ -601,7 +601,7 @@
   </br>
     
   <details>
-  <summary><b>JSTL 적용 EX 3) 📍 </b></summary>
+  <summary><b>JSTL 적용 EX 3) </b></summary>
   <div markdown="1">
 
 
@@ -626,7 +626,7 @@
 </br>
 
 <details>
-<summary><b>스프링 빈 객체 생성 중 특정 예외 발생 ✔️ </b></summary>
+<summary><b>스프링 빈 객체 생성 중 특정 예외 발생 </b></summary>
 <div markdown="1">
   
   - 스프링 실행 중 아래 에러 메시지 발생  
