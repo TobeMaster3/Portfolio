@@ -629,8 +629,10 @@
 <details>
 <summary><b>스프링 빈 객체 생성중 특정 예외 발생</b></summary>
 <div markdown="1">
+  
   - 스프링 실행 중 아래 에러 메세지 발생  
   'org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name'
+  
 </div>
 </details>
 
