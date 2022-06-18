@@ -631,7 +631,7 @@
 <div markdown="1">
   
   - 스프링 실행 중 아래 에러 메세지 발생  
-  'org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name'
+  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name~`
   
 </div>
 </details>
