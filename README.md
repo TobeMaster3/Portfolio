@@ -633,7 +633,7 @@
   - 스프링 실행 중 아래 에러 메세지 발생  
   `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
   
-  - 해결
+  - 해결  
   빈이 생성되 못해 던져지는 예외이다.  
   해결방안으로는 보통 1) 어노테이션 확인 2) mapper.xml 쿼리문 오타 확인이 있다. 
   단순히 mapper.xml 안의 쿼리문 오타였다.
