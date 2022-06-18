@@ -626,7 +626,7 @@
 </br>
 
 <details>
-<summary><b>스프링 빈 객체 생성 중 특정 예외 발생</b></summary>
+<summary><b>📍스프링 빈 객체 생성 중 특정 예외 발생</b></summary>
 <div markdown="1">
   
   - 스프링 실행 중 아래 에러 메시지 발생  
