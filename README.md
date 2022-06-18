@@ -29,7 +29,7 @@
 
 #### `Front-end`
   - HTML
-  - css
+  - CSS
   - JavaScript
 
 #### `Develpment Environment`
