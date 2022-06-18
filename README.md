@@ -627,16 +627,11 @@
 </br>
 
 <details>
-<summary><b>기존코드</b></summary>
+<summary><b>스프링 빈 객체 생성중 특정 예외 발생</b></summary>
 <div markdown="1">
 </div>
 </details>
 
-<details>
-<summary><b>개선된 코드</b></summary>
-<div markdown="1">
-</div>
-</details>
 
 </br></br>
 
