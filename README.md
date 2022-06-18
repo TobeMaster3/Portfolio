@@ -116,7 +116,7 @@
   </br>
   
   <p align="center">
-  <img src="https://user-images.githubusercontent.com/107043926/173869968-3ba6bafc-bd90-4927-b508-43c9d492c635.png">
+  <img src="https://user-images.githubusercontent.com/107043926/174450273-41865fa8-c2b0-43b8-9326-0adb9bc4e9e4.png">
   </p>
     
   </br>
