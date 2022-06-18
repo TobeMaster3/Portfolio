@@ -634,8 +634,8 @@
   `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
   
   - 해결    
-  해결방안으로는 보통 1) 어노테이션 확인 2) mapper.xml 쿼리문 오타 확인이 있다.  
-  단순히 mapper.xml 안의 쿼리문 오타였다.
+  해결방안으로는 보통 어노테이션을 확인하거나, Mapper.xml 쿼리문에 문제가 없는지 확인한다.  
+  나의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였다.
   
   
 </div>
