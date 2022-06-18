@@ -639,7 +639,54 @@
   
 </div>
 </details>
+    
+</br>
+    
+<details>
+<summary><b>트러블 슈팅 2</b></summary>
+<div markdown="1">
+  
+  - 에러 메시지 발생  
+  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+  
+  - 해결  
+  
+  
+  
+</div>
+</details>
 
+    </br>
+    
+<details>
+<summary><b>트러블 슈팅 3</b></summary>
+<div markdown="1">
+  
+  - 에러 메시지 발생  
+  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+  
+  - 해결  
+  
+  
+  
+</div>
+</details>
+
+    </br>
+    
+<details>
+<summary><b>트러블 슈팅 4</b></summary>
+<div markdown="1">
+  
+  - 에러 메시지 발생  
+  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+  
+  - 해결  
+  
+  
+  
+</div>
+</details>
 
 </br></br>
 
