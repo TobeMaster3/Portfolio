@@ -1217,10 +1217,8 @@
 </br>
     
 <details>
-<summary><b>트러블 슈팅 2</b></summary>
+<summary><b>게시판 상세보기중 데이터 반환값 null </b></summary>
 <div markdown="1">
-  
-  - 게시판 상세보기중 데이터 반환값 null  
   
   - 해결  
   
