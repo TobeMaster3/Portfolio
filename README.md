@@ -1211,7 +1211,6 @@
   해결방안으로는 보통 어노테이션을 확인하거나, Mapper.xml 쿼리문에 문제가 없는지 확인한다.  
   나의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였다.
   
-  
 </div>
 </details>
     
@@ -1221,11 +1220,9 @@
 <summary><b>트러블 슈팅 2</b></summary>
 <div markdown="1">
   
-  - 에러 메시지 발생  
-  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+  - 게시판 상세보기중 데이터 반환값 null  
   
   - 해결  
-  
   
   
 </div>
@@ -1241,7 +1238,6 @@
   `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
   
   - 해결  
-  
   
   
 </div>
