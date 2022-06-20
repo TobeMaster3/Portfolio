@@ -1219,8 +1219,7 @@
 <details>
 <summary><b>게시판 상세보기 데이터 반환값 null </b></summary>
 <div markdown="1">
-  
-  
+  </br>
   - 해결  
     - pseq 파라미터값 부분 브레이킹 포인트 만든 후, 디버그 모드로 실행하고  
       데이터 값이 잘 나오는지 확인한다  
