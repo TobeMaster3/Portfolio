@@ -1217,11 +1217,14 @@
 </br>
     
 <details>
-<summary><b>게시판 상세보기중 데이터 반환값 null </b></summary>
+<summary><b>게시판 상세보기 데이터 반환값 null </b></summary>
 <div markdown="1">
   
   - 해결  
-  
+    - pseq 파라미터값 부분 브레이킹 포인트 만든 후, 디버그 모드로 실행하고  
+      데이터 값이 잘 나오는지 확인한다 => 리턴값이 다 Null로 나온다.
+    - 왜 리턴값이 Null인지 확인하기 위해서, DBMS 툴을 통해서 쿼리문을 확인한다.
+    - CommServiceImpl.java에서 비즈니스 로직이 리턴을 해주는지 확인한다.
   
 </div>
 </details>
