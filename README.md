@@ -55,7 +55,7 @@
 ## 3. 세부 기획
 <br/>
 <details>
-<summary><b>핵심 기능 설명 보기</b></summary>
+<summary><b>ERD 설계</b></summary>
 <div markdown="1">
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png">
