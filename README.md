@@ -1280,11 +1280,6 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 
 </div>
 </details>
-</br>
-  
-### 6-3 서버 구축 및 배포
-  
-
 
 <div>
 </details>
