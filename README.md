@@ -1,5 +1,5 @@
 # :pushpin: CAMPER
-> 캠핑을 위한 웹 커뮤니티 사이트  
+> 캠핑족 혹은 캠핑에 관심이 있는 사람들을 위한 커뮤니티
 > url : 
 
 </br>
@@ -17,13 +17,11 @@
 </br></br>
 
 ## 1. 프로젝트 개요
-#### `진행기간`
+#### `제작 기간`
 2022 02월 15일 ~ 03월 15일  
 
-
-#### `진행 인원`
+#### `참여 인원`
 팀 프로젝트 ( 4인 )  
-
 
 #### `간단소개`
 - 사용자는 회원가입( 일반 또는 SNS계정 ), 로그인 후 모든 서비스를 이용할 수 있습니다.
@@ -52,16 +50,11 @@
 
 </br></br>
 
-## 3. 세부 기획
+## 3. ERD 설계
 <br/>
-<details>
-<summary><b>ERD 설계</b></summary>
-<div markdown="1">
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png">
 </p>
-<div>
-</details>
 
 </br></br>
 
@@ -1303,7 +1296,7 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 	- 어노테이션을 확인
 	- Mapper.xml 쿼리문에 문제가 없는지 확인  
 	
-나의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였기 때문에 수정해서 문제를 해결하였다.
+저의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였기 때문에 수정해서 문제를 해결하였습니다.
   
 </div>
 </details>
@@ -1317,14 +1310,14 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
   
   - 해결  
     - pseq 파라미터값 부분 브레이킹 포인트 만든 후, 디버그 모드로 실행하고  
-      데이터 값이 잘 나오는지 확인한다  
+      데이터 값이 잘 나오는지 확인  
       => 리턴값이 다 Null로 나온다.  
   
-    - 왜 리턴값이 Null인지 확인하기 위해서, DBMS 툴(하이디SQL)을 통해서 쿼리문을 확인한다.  
+    - 왜 리턴값이 Null인지 확인하기 위해서, DBMS 툴(하이디SQL)을 통해서 쿼리문을 확인
       => 정상 작동 확인  
   
-    - CommServiceImpl.java에서 비즈니스 로직이 리턴을 해주는지 확인한다.  
-      => 파라미터값을 리턴하고 있는 로직을 수정해서 문제를 해결하였다.
+    - CommServiceImpl.java에서 비즈니스 로직이 리턴을 해주는지 확인  
+      => 파라미터값을 리턴하고 있는 로직을 수정해서 문제를 해결하였습니다.
   
 </div>
 </details>
@@ -1353,15 +1346,13 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 </br>
     
 <details>
-<summary><b>트러블 슈팅 4</b></summary>
+<summary><b>쿼리문은 정상으로 실행되지만, 리턴값이 안뜰 때</b></summary>
 <div markdown="1">
   
-  - 에러 메시지 발생  
-  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
-  
-  - 해결  
-  
-  
+	
+- 해결  
+	- Mybatis에서 select된 데이터를 반환할 그릇을 정해주는 것이다.
+	- parameterType은 생략이 가능하나 resultType은 꼭 지정해주어야 한다.
   
 </div>
 </details>
