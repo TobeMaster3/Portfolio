@@ -1246,9 +1246,21 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
     
 <details>
 <summary><b>JSTL 적용 EX 3) </b></summary>
+
+- 게시글 상세보기 페이지 수정 / 삭제 버튼 JSTL 사용
+- <c:if> 내 test속성이 참값이면 실행된다.
+- Session 객체의 nick 값과 리턴 nick 값이 같으면 즉 자신이 쓴 글 상세보기 페이지안에서는  
+수정/삭제 버튼이 생긴다.
 <div markdown="1">
 
-
+```html
+<div style="float: right;">
+	<c:if test="${board.nick eq sessionScope.nick }">
+		<input type="button" value="수정" class="btn btn-transparent" onclick="location.href='/community/modify.do?pseq=${board.pseq}&type=${board.type}'" />
+		<input type="button" value="삭제" id="dbtn" class="btn btn-transparent" onclick="location.href='/community/delete.do?pseq=${board.pseq}&type=${board.type}'" />
+	</c:if>
+</div>	
+```
 
 </div>
 </details>
