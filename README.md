@@ -1321,14 +1321,20 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 </br>
     
 <details>
-<summary><b>트러블 슈팅 3</b></summary>
+<summary><b>MariaDB 외래키, 메인키 컬럼 설정 오류 발생</b></summary>
 <div markdown="1">
   
-  - 에러 메시지 발생  
-  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+- 에러 메시지 발생  
+`errno: 150 "Foreign Key constraint incorrectly formed`
   
-  - 해결  
-  
+- 해결  
+이 에러메세지를 본다면 몇가지를 확인해야한다.
+	- 데이터의 타입이 같은지?  
+	=> Main키가 INT면 외래키도 INT이여야 한다.
+	
+	- 메인키와 외래키 모두 NOT NULL 체크되어있는지 확인한다.
+	
+	- 참조하는 키(Reference Key)가 메인키 혹은 유니크 키인지 확인한다.
   
 </div>
 </details>
