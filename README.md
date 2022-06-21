@@ -38,6 +38,7 @@
   - Java 11
   - Spring Boot
   - JSP
+  - Mybatis
 
 #### `Front-end`
   - HTML
