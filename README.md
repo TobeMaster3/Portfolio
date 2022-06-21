@@ -1162,9 +1162,9 @@ items=List객체명 , varStatus=반복상태를알수있는 변수를
 - EL을 사용하여 리턴값 표현
 <div markdown="1">
 
-  ```html
-  <c:forEach var="board" items="${boardLists}" varStatus="status">
-     <article>
+```html
+<c:forEach var="board" items="${boardLists}" varStatus="status">
+   <article>
 	<div>
 	   <a href="/community/view.do?cpage=${board.cpage}&pseq=${board.pseq}&type=${board.type}">${board.title}</a>
 	</div>
@@ -1175,7 +1175,7 @@ items=List객체명 , varStatus=반복상태를알수있는 변수를
      </article>
   </c:forEach>
     
-  ```
+```
 
 </div>
 </details>
@@ -1186,22 +1186,33 @@ items=List객체명 , varStatus=반복상태를알수있는 변수를
 <summary><b>JSTL 적용 EX 2) </b></summary>
 <div markdown="1">
 
-
-
-  </div>
-  </details>
+```html
+<!--  버튼 Part -->
+<c:choose>
+	<c:when test="${empty sessionScope.nick}">
+		<input type="button" value="글쓰기" class="btn btn-transparent" style="float: right;" onclick="javascript:alert('로그인을 하셔야합니다.')" >
+	</c:when>
+	<c:otherwise>
+		<input type="button" value="글쓰기" class="btn btn-transparent" style="float: right;" onclick="location.href='/community/write.do'" >
+	</c:otherwise>
+</c:choose>
+	
+```
+	
+</div>
+</details>
   
-  </br>
+</br>
     
-  <details>
-  <summary><b>JSTL 적용 EX 3) </b></summary>
-  <div markdown="1">
+<details>
+<summary><b>JSTL 적용 EX 3) </b></summary>
+<div markdown="1">
 
 
 
-  </div>
-  </details>
-  </br>
+</div>
+</details>
+</br>
   
 ### 6-3 서버 구축 및 배포
   
