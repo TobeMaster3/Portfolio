@@ -1159,15 +1159,15 @@
 
   ```html
   <c:forEach var="board" items="${boardLists}" varStatus="status">
-	<article>
-		<div>
-			<a href="/community/view.do?cpage=${board.cpage}&pseq=${board.pseq}&type=${board.type}">${board.title}</a>
-		</div>
-		<ul class="list-inline">
-			<li class="list-inline-item">by <a href="" data-toggle="modal" data target="#userprofile" onclick="userProfile('${board.nick}')">${board.nick}</a></li>
-			<li class="list-inline-item">${board.wdate}</li>
-		</ul>
-	</article>
+     <article>
+	<div>
+	   <a href="/community/view.do?cpage=${board.cpage}&pseq=${board.pseq}&type=${board.type}">${board.title}</a>
+	</div>
+	   <ul class="list-inline">
+		<li class="list-inline-item">by <a href="" data-toggle="modal" data-target="#userprofile" onclick="userProfile('${board.nick}')">${board.nick}</a></li>
+		<li class="list-inline-item">${board.wdate}</li>
+	   </ul>
+     </article>
   </c:forEach>
     
   ```
