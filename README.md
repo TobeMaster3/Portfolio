@@ -126,444 +126,456 @@
   <summary><b>CommMapper.xml 코드 확인</b></summary>
     
   - Mybatis 사용목적 중 하나인 SQL문을 분리하기 위해 작성한다.
-  <div markdown="1">
+<div markdown="1">
 
-  ```html
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE mapper 
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  <mapper namespace="com.camper.community.mapper.CommMapper">
+```html
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.camper.community.mapper.CommMapper">
 
-    <!-- 게시판 Mapper.xml -->
+	<!-- 게시판 Mapper.xml -->
+	
+	<!-- 커뮤니티 캠핑로그 / 캠핑꿀팁 / 캠핑가자 List -->
+	<select id="boardList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT PSEQ
+	    		, TITLE
+	            , NICK
+	            , TYPE
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	    FROM p_table
+	    WHERE TYPE = #{type}
+	    ORDER BY PSEQ DESC
+	    LIMIT 5 OFFSET #{offset}
+	</select>
+	
+	<!-- 페이징 위한 게시글 count -->
+	<select id="boardListCount" parameterType="com.camper.community.model.BoardTO" resultType="int" >
+		SELECT COUNT(1)
+		FROM p_table
+		WHERE TYPE = #{type}
+	</select>
+	
+	
+	<!-- 커뮤니티 게시물 보기 -->
+	<select id="viewBoard" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+	    		, NICK
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	            , CONTENT
+	            , TYPE
+	            , PSEQ 
+	    FROM p_table 
+	    WHERE PSEQ = #{pseq}
+	</select>
+	    
+	    
+	<!-- 커뮤니티 게시물 등록 -->
+	<insert id="writeBoard" parameterType="com.camper.community.model.BoardTO">
+		INSERT INTO p_table 
+	    VALUES( 0, #{title}, #{nick}, #{pwd}, #{content}, #{type}, now(), #{heart}, #{preply} )
+	</insert>
+	
+	
+	<!--  커뮤니티 게시물 삭제 확인 -->
+	<delete id="deleteOkBoard" parameterType="com.camper.community.model.BoardTO">
+		DELETE FROM p_table 
+	    WHERE PSEQ = #{pseq}
+	</delete>
+	
+	
+	<!-- 커뮤니티 게시물 수정 -->
+	<select id="modifyBoard" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+				, NICK
+				, CONTENT
+				, TYPE
+				, PSEQ
+		FROM p_table 
+		WHERE PSEQ = #{pseq}
+	</select>
+	
+	
+	<!-- 커뮤니티 게시물 수정 확인 -->
+	 <update id="modifyOkBoard" parameterType="com.camper.community.model.BoardTO">
+		UPDATE p_table SET TITLE = #{title}, CONTENT = #{content} 
+	    WHERE PSEQ = #{pseq}
+	</update>   
+	    
+	    
+	<!-- 공지사항 List -->
+	<select id="noticeList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT NSEQ
+	    		, TITLE
+	            , NICK
+	            , TYPE
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE 
+	    FROM n_board 
+	    WHERE TYPE = #{type}
+	    ORDER BY NSEQ DESC 
+	</select>
+	    
+	    
+	<!-- 공지사항 게시물 보기 -->
+	<select id="noticeView" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+	    		, NICK
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	            , CONTENT
+	            , TYPE
+	            , NSEQ
+	    FROM n_board 
+	    WHERE NSEQ = #{nseq}
+	</select>
+	    
+	    
+	<!-- FAQ List -->
+	<select id="faqList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT NSEQ
+	    		, TITLE
+	            , NICK
+	            , CONTENT
+	            , DATE_FORMAT(WDATE, '%Y-%m-%d' ) AS WDATE
+	    FROM n_board 
+	    WHERE TYPE = #{type}
+	    ORDER BY NSEQ DESC  
+	</select>
+	
+</mapper>
+```
 
-    <!-- 커뮤니티 메인페이지 캠핑로그 / 캠핑꿀팁 / 캠핑가자 List -->
-    <select id="boardMain" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
-      SELECT pseq
-            , title
-                , nick
-                , type
-                , date_format( wdate, '%y-%m-%d' ) wdate
-        FROM p_table
-        WHERE type="#{type}"
-        ORDER BY pseq desc limit 0,5
-    </select>
-
-
-    <!-- 커뮤니티 캠핑로그 List -->
-    <select id="camplogList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
-      SELECT pseq
-            , title
-                , nick
-                , type
-                , date_format( wdate, '%y-%m-%d' ) wdate
-        FROM p_table
-        WHERE type="l"
-        ORDER BY pseq desc
-    </select>
-
-
-    <!-- 커뮤니티 캠핑꿀팁 List -->
-    <select id="camplogList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
-      SELECT pseq
-            , title
-                , nick
-                , type
-                , date_format( wdate, '%y-%m-%d' ) wdate
-        FROM p_table
-        WHERE type="t"
-        ORDER BY pseq desc
-    </select>
-
-
-    <!-- 커뮤니티 캠핑가자 List -->
-    <select id="camplogList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
-      SELECT pseq
-            , title
-                , nick
-                , type
-                , date_format( wdate, '%y-%m-%d' ) wdate
-        FROM p_table
-        WHERE type="g"
-        ORDER BY pseq desc
-    </select>
-
-
-    <!-- 커뮤니티 게시물 보기 -->
-    <select id="viewBoard" parameterType="com.camper.community.model.BoardTO" >
-      SELECT title
-            , nick
-                , date_format( wdate, '%y-%m-%d' ) wdate
-                , content
-                , type 
-        FROM p_table 
-        WHERE pseq = #{pseq}
-    </select>
-
-
-    <!-- 커뮤니티 게시물 등록 -->
-    <insert id="writeBoard" parameterType="com.camper.community.model.BoardTO">
-      INSERT INTO p_table 
-        VALUES( 0, #{title}, #{nick}, #{pwd}, #{content}, #{type}, now(), #{heart}, #{preply} )
-    </insert>
-
-
-    <!-- 커뮤니티 게시물 삭제 -->
-    <delete id="deleteBoard" parameterType="com.camper.community.model.BoardTO">
-      DELETE FROM p_table 
-        WHERE pseq = #{pseq} AND pwd = #{pwd}
-    </delete>
-
-
-    <!-- 게시물 수정 -->
-    <update id="modifyBoard" parameterType="com.camper.community.model.BoardTO">
-      UPDATE p_table SET title = #{title}, content = #{content} 
-        WHERE pseq = #{pseq}
-    </update>
-
-
-    <!-- 공지사항 List -->
-    <select id="noticeList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
-      SELECT nseq
-            , title
-                , nick
-                , type
-                , date_format( wdate, '%y-%m-%d' ) wdate 
-        FROM n_board 
-        WHERE type = 'n'
-        ORDER BY nseq desc
-    </select>
-
-
-    <!-- 공지사항 게시물 보기 -->
-    <select id="noticeView" parameterType="com.camper.community.model.BoardTO">
-      SELECT title
-            , nick
-                , date_format( wdate, '%y-%m-%d' ) wdate
-                , content
-                , type
-        FROM n_board 
-        WHERE nseq = #{nseq}
-    </select>
-
-
-    <!-- FAQ List -->
-    <select id="faqList" parameterType="com.camper.community.model.NboardTO" resultType="com.camper.community.model.NboardTO">
-      SELECT nseq
-            , title
-                , nick
-                , content
-                , date_format(wdate, '%Y-%m-%d' ) wdate
-        FROM n_board 
-        WHERE type = 'f' 
-        ORDER BY nseq desc    
-    </select>
-
-  </mapper>
-  ```
-
-  </div>
-  </details>
+</div>
+</details>
     
-  </br>
+</br>
   
-  <details>
-  <summary><b>CommMapper.java 코드 확인</b></summary>
+<details>
+<summary><b>CommMapper.java 코드 확인</b></summary>
     
-  - CommMapper.xml 파일에 기재된 SQL문을 호출하기 위한 인터페이스(Interface)이다.
-  - 메서드명은 CommMapper.xml의 namespace ID와 맞춰야 한다.
-  <div markdown="1">
+- CommMapper.xml 파일에 기재된 SQL문을 호출하기 위한 인터페이스(Interface)이다.
+- 메서드명은 CommMapper.xml의 namespace ID와 맞춰야 한다.
+<div markdown="1">
 
-  ~~~java
-  /**
-   * CommMapper.java 
-   */
-  package com.camper.community.mapper;
+~~~java
+package com.camper.community.mapper;
 
-  import java.util.ArrayList;
+import java.util.List;
 
-  import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-  import com.camper.community.model.BoardTO;
-  import com.camper.community.model.NboardTO;
+import com.camper.community.model.BoardTO;
 
 
-  @Mapper
-  public interface CommMapper {
+@Mapper
+public interface CommMapper {
+	
+	// 커뮤니티 메인페이지 3개 List
+	public List<BoardTO> boardList( BoardTO to );
+	
+	// 페이징 위한 게시글 count
+	public int boardListCount( BoardTO to );
 
-    // 커뮤니티 메인페이지 3개 List
-    public List<BoardTO> boardMain( BoardTO to );
+	// 커뮤니티 게시글 보기
+	public BoardTO viewBoard( BoardTO to );
+	
+	// 커뮤니티 게시글 등록
+	public int writeBoard( BoardTO to );
+	
+	// 커뮤니티 게시글 삭제
+	// public BoardTO deleteBoard( BOardTO to );
 
-    // 커뮤니티 캠핑로그 List
-    public List<BoardTO> camplogList( BoardTO to );
+	// 커뮤니티 게시글 삭제 확인
+	public int deleteOkBoard( BoardTO to );
+	
+	// 커뮤니티 게시글 수정
+	public BoardTO modifyBoard( BoardTO to );
+	
+	// 커뮤니티 게시글 수정 확인
+	public int modifyOkBoard( BoardTO to );
+	
+	// 공지사항 게시글 List
+	public List<BoardTO> noticeList( BoardTO to );
+	
+	// 공지사항 게시글 보기
+	public BoardTO noticeView( BoardTO to );
+	
+	// FAQ 게시글 List
+	public List<BoardTO> faqList( BoardTO to);
+}
 
-    // 커뮤니티 캠핑꿀팁 List
-    public List<BoardTO> camptipList( BoardTO to );
+~~~
 
-    // 커뮤니티 캠핑가자 List
-    public List<BoardTO> campgoList( BoardTO to );
-
-    // 커뮤니티 게시글 보기
-    public void viewBoard( BoardTO to );
-
-    // 커뮤니티 게시글 등록
-    public void writeBoard( BoardTO to );
-
-    // 커뮤니티 게시글 삭제
-    public void deleteBoard( BoardTO to );
-
-    // 커뮤니티 게시글 수정
-    public void modifyBoard( BoardTO to );
-
-    // 공지사항 게시글 List
-    public List<BoardTO> noticeList( BoardTO to );
-
-    // 공지사항 게시글 보기
-    public void noticeView( BoardTO to );
-
-    // FAQ 게시글 List
-    public List<NboardTO> faqList( NboardTO to );
-  }
-  ~~~
-
-  </div>
-  </details>
+</div>
+</details>
   
-  </br>
+</br>
    
-  <details>
-  <summary><b>CommService.java 코드 확인</b></summary>
+<details>
+<summary><b>CommService.java 코드 확인</b></summary>
     
-  - 해당 Service에서 수행하는 기능들을 먼저 정의한 것이다.
-  - Controller는 화면에서 넘어오는 매개변수들을 이용해 Service객체들을 호출한다.
-  <div markdown="1">
+- 해당 Service에서 수행하는 기능들을 먼저 정의한 것이다.
+- Controller는 화면에서 넘어오는 매개변수들을 이용해 Service객체들을 호출한다.
+<div markdown="1">
 
-  ~~~java
-  /**
-   * CommService.java
-   */
-  package com.camper.community.service;
+~~~java
+package com.camper.community.service;
 
-  import java.util.ArrayList;
+import java.util.List;
 
-  import com.camper.community.model.BoardTO;
-  import com.camper.community.model.NboardTO;
+import com.camper.community.model.BoardTO;
+import com.camper.model.NboardTO;
 
-  public interface CommService {
+public interface CommService {
 
-      // 커뮤니티 메인페이지 3개 List
-      public List<BoardTO> boardMain( BoardTO to ) throws Exception;
+	// 커뮤니티 메인페이지 3개 List
+	public List<BoardTO> boardList( BoardTO to ) throws Exception;
+		
+	// 페이징 위한 게시글 count
+	public int boardListCount( BoardTO to ) throws Exception;
+		
+	// 커뮤니티 게시글 보기
+	public BoardTO viewBoard( BoardTO to ) throws Exception;
+		
+	// 커뮤니티 게시글 등록
+	public int writeBoard( BoardTO to ) throws Exception;
+		
+	/*
+	// 커뮤니티 게시글 삭제
+	public BoardTO deleteBoard( BoardTO to ) throws Exception;
+	*/
+		
+	// 커뮤니티 게시글 삭제 확인
+	public int deleteOkBoard( BoardTO to ) throws Exception;
+		
+	// 커뮤니티 게시글 수정
+	public BoardTO modifyBoard( BoardTO to ) throws Exception;
+		
+	// 커뮤니티 게시글 수정 확인
+	public int modifyOkBoard( BoardTO to ) throws Exception;
+		
+	// 공지사항 게시글 List
+	public List<BoardTO> noticeList( BoardTO to ) throws Exception;
+		
+	// 공지사항 게시글 보기
+	public BoardTO noticeView( BoardTO to ) throws Exception;
+		
+	// FAQ 게시글 List
+	public List<BoardTO> faqList( BoardTO to ) throws Exception;
+}
 
-      // 커뮤니티 캠핑로그 List
-      public List<BoardTO> camplogList( BoardTO to ) throws Exception;
+~~~
 
-      // 커뮤니티 캠핑꿀팁 List
-      public List<BoardTO> camptipList( BoardTO to ) throws Exception;
-
-      // 커뮤니티 캠핑가자 List
-      public List<BoardTO> campgoList( BoardTO to ) throws Exception;
-
-      // 커뮤니티 게시글 보기
-      public void viewBoard( BoardTO to ) throws Exception;
-
-      // 커뮤니티 게시글 등록
-      public void writeBoard( BoardTO to ) throws Exception;
-
-      // 커뮤니티 게시글 삭제
-      public void deleteBoard( BoardTO to ) throws Exception;
-
-      // 커뮤니티 게시글 수정
-      public void modifyBoard( BoardTO to ) throws Exception;
-
-      // 공지사항 게시글 List
-      public List<BoardTO> noticeList( BoardTO to ) throws Exception;
-
-      // 공지사항 게시글 보기
-      public void noticeView( BoardTO to ) throws Exception;
-
-      // FAQ 게시글 List
-      public List<NboardTO> faqList( NboardTO to ) throws Exception;
-    }
-  ~~~
-
-  </div>
-  </details>
+</div>
+</details>
     
-  </br>
+</br>
 
-  <details>
-  <summary><b>CommServiceImpl 코드 확인</b></summary>
+<details>
+<summary><b>CommServiceImpl 코드 확인</b></summary>
     
-  - CommService.java를 부모로 상속받아 구현하게 된다.
-  - CommServiceImpl.java는 비즈니스 로직 즉, 기능을 구현하는 구현부를 수행하는 역할을 맡는다.
-  <div markdown="1">
+- CommService.java를 부모로 상속받아 구현하게 된다.
+- CommServiceImpl.java는 비즈니스 로직 즉, 기능을 구현하는 구현부를 수행하는 역할을 맡는다.
+<div markdown="1">
 
-  ~~~java
-  /**
-   * 게시물 필터 (Tag Name)
-   */
-  package com.camper.community.service.impl;
+~~~java
+package com.camper.community.service.impl;
 
-  import java.util.List;
+import java.util.List;
 
-  import org.springframework.beans.factory.annotation.Autowired;
-  import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-  import com.camper.community.community.mapper.CommMapper;
-  import com.camper.community.model.BoardTO;
-  import com.camper.community.model.NboardTO;
-  import com.camper.community.service.CommService;
+import com.camper.community.mapper.CommMapper;
+import com.camper.community.model.BoardTO;
+import com.camper.community.service.CommService;
 
-  import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 
-  @Slf4j
-  @Service
-  public class CommServiceImpl implements CommService {
+@Slf4j
+@Service
+public class CommServiceImpl implements CommService {
 
-    @Autowired
-    public CommMapper commMapper;
+	@Autowired
+	CommMapper commMapper;
+	
+	// 커뮤니티 게시글 List
+	@Override
+	public List<BoardTO> boardList(BoardTO to) throws Exception {
+		
+		List<BoardTO> list = null;
+		
+		try {
+			list = commMapper.boardList( to );
+		} catch (Exception e) {
+			log.error( "[게시판 리스트 조회 에러]" + e.getMessage() );
+		}
+		
+		return list;
+	}
+	
+	// 페이징 위한 게시글 count
+	public int boardListCount( BoardTO to ) throws Exception {
+		// 게시판 카운트
+		return commMapper.boardListCount( to );
+		
+	}
+	
+	// 게시판 게시글 상세보기
+	@Override
+	public BoardTO viewBoard(BoardTO to) throws Exception {
+		
+		BoardTO board = null;
+		
+		try {
+			board = commMapper.viewBoard( to );
+		} catch (Exception e) {
+			log.error( "[게시글 상세 보기 에러]" + e.getMessage() );
+		}
+		
+		return board;
+	}
+	
+	// 게시판 게시글 등록
+	@Override
+	public int writeBoard(BoardTO to) throws Exception {
+		
+		int flag = 1;
+		
+		try {
+			if( commMapper.writeBoard( to ) == 1 ) {
+				flag = 0;
+			}
+		} catch (Exception e) {
+			log.error( "[게시판 게시글 등록 에러]" + e.getMessage() );
+		}
+		return flag;
+	}
+	
+	/*
+	// 게시판 게시글 삭제
+	@Override
+	public BoardTO deleteBoard(BoardTO to) throws Exception {
+		BoardTO board = null;
+		
+		try {
+			board = commMapper.deleteBoard( to );
+		} catch (Exception e) {
+			log.error( "[게시판 게시글 삭제 에러]" + e.getMessage() );
+		}
+		
+		return board;
+		
+	}
+	*/
+	
+	// 게시판 게시글 삭제 확인
+	@Override
+	public int deleteOkBoard(BoardTO to) throws Exception {
+		
+		int flag = 1;
+		
+		try {
+			if( commMapper.deleteOkBoard( to ) == 1 ) {
+				// 정상
+				flag = 0;
+			}
+		} catch (Exception e) {
+			log.error( "[게시판 게시글 삭제 확인 에러]" + e.getMessage() );
+		}
+		return flag;
+	}
+	
+	// 게시판 게시글 수정
+	@Override
+	public BoardTO modifyBoard(BoardTO to) throws Exception {
+		
+		BoardTO board2 = null;
+		
+		try {
+			board2 = commMapper.modifyBoard( to );
+		} catch (Exception e) {
+			log.error( "[게시판 게시글 수정 에러]" + e.getMessage() );
+		}
+		
+		return board2;
+		
+	}
+	
+	// 게시판 게시글 수정 확인
+	@Override
+	public int modifyOkBoard(BoardTO to) throws Exception {
+		
+		int flag = 1;
+		
+		try {
+			if( commMapper.modifyOkBoard( to ) == 1 ) {
+				// 정상
+				flag = 0;
+			}
+		} catch (Exception e) {
+			log.error( "[게시판 게시글 수정 확인 에러]" + e.getMessage() );
+		}
+		
+		return flag;
+	}
 
-    @Override
-    public List<BoardTO> boardMain(BoardTO to) throws Exception {
-      List<BoardTO> list = null;
+	// 공지사항 List
+	@Override
+	public List<BoardTO> noticeList(BoardTO to) throws Exception {
+		
+		List<BoardTO> list = null;
+		
+		try {
+			list = commMapper.noticeList( to );
+		} catch (Exception e) {
+			log.error( "[공지사항 리스트 에러]" + e.getMessage() );
+		}
+		
+		return list;
+	}
 
-      try {
-        list = commMapper.boardMain( to );
-      } catch (Exception e) {
-        log.error( "[게시판 메인 에러]" + e.getMessage() );
-      }
+	// 공지사항 글보기
+	@Override
+	public BoardTO noticeView(BoardTO to) throws Exception {
+		
+		BoardTO board3 = null;
+		
+		try {
+			board3 = commMapper.noticeView( to );
+		} catch (Exception e) {
+			log.error( "[공지사항 글보기 에러]" + e.getMessage() );
+		}
+		return board3;
+	}
 
-      return list;
-    }
+	// FAQ List
+	@Override
+	public List<BoardTO> faqList(BoardTO to) throws Exception {
+		
+		List<BoardTO> list = null;
+		
+		try {
+			list = commMapper.faqList( to );
+		} catch (Exception e) {
+			log.error( "[문의응답 리스트 에러]" + e.getMessage() );
+		}
+		
+		return list;
+	}
+}
+	
+~~~
 
-
-    @Override
-    public List<BoardTO> camplogList(BoardTO to) {
-      List<BoardTO> list = null;
-
-      try {
-        list = commMapper.campgoList( to );
-      } catch (Exception e) {
-        log.error( "[게시판 리스트 에러]" + e.getMessage() );
-      }
-
-      return list;
-    }
-
-    @Override
-    public List<BoardTO> camptipList(BoardTO to) throws Exception {
-      List<BoardTO> list = null;
-
-      try {
-        list = commMapper.camptipList( to );
-      } catch (Exception e) {
-        log.error( "[게시판 리스트 에러]" + e.getMessage() );
-      }
-
-      return list;
-    }
-
-    @Override
-    public List<BoardTO> campgoList(BoardTO to) throws Exception {
-      List<BoardTO> list = null;
-
-      try {
-        list = commMapper.campgoList( to );
-      } catch (Exception e) {
-        log.error( "[게시판 리스트 에러]" + e.getMessage() );
-      }
-
-      return list;
-    }
-
-    @Override
-    public void viewBoard(BoardTO to) throws Exception {
-      try {
-        commMapper.viewBoard( to );
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        log.error( "[게시글 보기 에러]" + e.getMessage() );
-      }
-    }
-
-    @Override
-    public void writeBoard(BoardTO to) throws Exception {
-      try {
-        commMapper.writeBoard( to );
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        log.error( "[게시판 글등록 에러]" + e.getMessage() );
-      }
-    }
-
-    @Override
-    public void deleteBoard(BoardTO to) throws Exception {
-      try {
-        commMapper.deleteBoard( to );
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        log.error( "[게시판 글삭제 에러]" + e.getMessage() );
-      }
-    }
-
-    @Override
-    public void modifyBoard(BoardTO to) throws Exception {
-      try {
-        commMapper.modifyBoard( to );
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        log.error( "[게시판 글수정 에러]" + e.getMessage() );
-      }
-    }
-
-    @Override
-    public List<BoardTO> noticeList(BoardTO to) throws Exception {
-      List<BoardTO> list = null;
-
-      try {
-        list = commMapper.noticeList( to );
-      } catch (Exception e) {
-        log.error( "[공지사항 리스트 에러]" + e.getMessage() );
-      }
-
-      return list;
-    }
-
-    @Override
-    public void noticeView(BoardTO to) throws Exception {
-      try {
-        commMapper.noticeView( to );
-      } catch (Exception e) {
-        // TODO Auto-generated catch block
-        log.error( "[공지사항 글보기 에러]" + e.getMessage() );
-      }
-    }
-
-    @Override
-    public List<NboardTO> faqList(NboardTO to) throws Exception {
-      List<NboardTO> list = null;
-
-      try {
-        list = commMapper.faqList( to );
-      } catch (Exception e) {
-        log.error( "[문의응답 리스트 에러]" + e.getMessage() );
-      }
-
-      return list;
-    }
-
-  }
-  ~~~
-
-  </div>
-  </details>
+</div>
+</details>
     
-  </br>
+</br>
     
-  <details>
-  <summary><b>CommController.java 코드 확인</b></summary>
-  <div markdown="1">
+<details>
+<summary><b>CommController.java 코드 확인</b></summary>
+<div markdown="1">
 
-  ~~~java
+~~~java
   package com.camper.community.controller;
 
   import java.io.File;
