@@ -25,14 +25,14 @@
 ## 2. 사용 기술
 #### `Back-end`
   - Java 11
+  - Spring Boot
   - JSP
-  - Spring Boot 5.3.2
 
 #### `Front-end`
   - HTML
   - CSS
   - JavaScript
-
+  - 
 #### `Develpment Environment`
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/173319952-bf310141-537e-4820-88dc-05bb27d17615.png"
@@ -41,11 +41,16 @@
 
 </br></br>
 
-## 3. ERD 설계
+## 3. 세부 기획
 <br/>
+<details>
+<summary><b>핵심 기능 설명 보기</b></summary>
+<div markdown="1">
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/173349847-2f931a2d-9fdb-49c1-907f-73e442e0a997.png">
 </p>
+<div>
+</details>
 
 </br></br>
 
