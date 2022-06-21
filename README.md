@@ -1285,12 +1285,14 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 <summary><b>스프링 빈 객체 생성 중 특정 예외 발생 </b></summary>
 <div markdown="1">
   
-  - 스프링 실행 중 아래 에러 메시지 발생  
-  `org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
+- 스프링 실행 중 아래 에러 메시지 발생  
+`org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name ~`
   
-  - 해결    
-  해결방안으로는 보통 어노테이션을 확인하거나, Mapper.xml 쿼리문에 문제가 없는지 확인한다.  
-  나의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였기 때문에 수정해서 문제 해결
+- 해결    
+해결방안으로는 보통 2가지를 확인해야 한다.
+	- 어노테이션을 확인
+	- Mapper.xml 쿼리문에 문제가 없는지 확인  
+나의 경우에는 단순히 mapper.xml 안의 쿼리문 오타였기 때문에 수정해서 문제 해결
   
 </div>
 </details>
