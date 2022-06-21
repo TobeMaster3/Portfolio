@@ -1153,13 +1153,14 @@
   현재는 가독성이 떨어지고 View와 비즈니스 로직의 분리  JSTL을 많이 사용하므로 추세에 맞게   
   JSTL로 변경하는 작업을 진행하였습니다.
     
-  <details>
-  <summary><b>JSTL 적용 EX 1) </b></summary>
-	  - 게시판 List 화면을 위한 JSTL 사용
-	  - 이름 목록을 가진 List를 출력하기 위해 <c:forEach> 와 var=변수명  
-	    items=List객체명 , varStatus=반복상태를알수있는 변수를 
-	  - EL을 사용하여 리턴값 표현
-  <div markdown="1">
+<details>
+<summary><b>JSTL 적용 EX 1) </b></summary>
+
+- 게시판 List 화면을 위한 JSTL 사용
+- 이름 목록을 가진 List를 출력하기 위해 <c:forEach> 와 var=변수명  
+items=List객체명 , varStatus=반복상태를알수있는 변수를 
+- EL을 사용하여 리턴값 표현
+<div markdown="1">
 
   ```html
   <c:forEach var="board" items="${boardLists}" varStatus="status">
@@ -1176,14 +1177,14 @@
     
   ```
 
-  </div>
-  </details>
+</div>
+</details>
   
-  </br>
+</br>
     
-  <details>
-  <summary><b>JSTL 적용 EX 2) </b></summary>
-  <div markdown="1">
+<details>
+<summary><b>JSTL 적용 EX 2) </b></summary>
+<div markdown="1">
 
 
 
