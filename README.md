@@ -1155,6 +1155,10 @@
     
   <details>
   <summary><b>JSTL 적용 EX 1) </b></summary>
+	  - 게시판 List 화면을 위한 JSTL 사용
+	  - 이름 목록을 가진 List를 출력하기 위해 <c:forEach> 와 var=변수명  
+	    items=List객체명 , varStatus=반복상태를알수있는 변수를 
+	  - EL을 사용하여 리턴값 표현
   <div markdown="1">
 
   ```html
