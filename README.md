@@ -1351,8 +1351,8 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
   
 	
 - 해결  
-	- Mybatis에서 select된 데이터를 반환할 그릇을 정해주는 것이다.
-	- parameterType은 생략이 가능하나 resultType은 꼭 지정해주어야 한다.
+	- Mybatis에서 select된 데이터를 어떤 자바 객체에 매핑할지  지정해주는 것이다.
+	- parameterType은 생략이 가능하나 resultType은 <select> 엘리먼트에서 생략될 수 없는 속성이다.
   
 </div>
 </details>
