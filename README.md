@@ -1348,11 +1348,10 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 <details>
 <summary><b>쿼리문은 정상으로 실행되지만, 리턴값이 안뜰 때</b></summary>
 <div markdown="1">
-  
-	
+  	
 - 해결  
 	- Mybatis에서 select된 데이터를 어떤 자바 객체에 매핑할지  지정해주는 것이다.
-	- parameterType은 생략이 가능하나 resultType은 <select> 엘리먼트에서 생략될 수 없는 속성이다.
+
   
 </div>
 </details>
