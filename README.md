@@ -1223,7 +1223,7 @@ var=변수명 , items=List객체명 , varStatus=반복상태를알수있는 변�
 
 - 글쓰기 버튼 part에 JSTL 사용
 - <c:choose> , <c:when> , <C:otherwise>를 사용하여 조건문 형태로 사용한다. 
-- session 객체의 nick 값이 비어있는(= 로그인 X ) 상태에선 글쓰기 버튼을 누르면  
+- Session 객체의 nick 값이 비어있는(= 로그인 X ) 상태에선 글쓰기 버튼을 누르면  
 로그인을 하라는 알람창이 뜬다.
 - 로그인된 상태라면, 글쓰기 버튼을 누르면 글쓰기창이 띄워지게 된다.
 <div markdown="1">
