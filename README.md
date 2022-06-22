@@ -55,7 +55,7 @@
 <br/>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/174970582-43744ac8-33d0-4126-b97f-d3a26269c113.png"
-     width="800" height="500">
+     width="900" height="700">
 </p>
 
 </br></br>
