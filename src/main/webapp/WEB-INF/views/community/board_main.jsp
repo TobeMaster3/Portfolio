@@ -1,70 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!--  캠핑톡톡 메인 List MVC Model2 구조 -->
 
-<%@ page import="com.camper.community.model.BoardTO" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.sql.ResultSet" %>
-<%
-
-	// 캠핑로그 
-	
-	ArrayList<BoardTO> boardLists5 = (ArrayList)request.getAttribute( "boardLists5" );
-	
-	StringBuffer sbHtml = new StringBuffer();
-		for( BoardTO to : boardLists5 ) {
-			int pseq = to.getPseq();
-			String title = to.getTitle();
-			String nick = to.getNick();
-			
-			sbHtml.append( "	<div class='item'>" );
-			sbHtml.append( "		<div class='title'>" );
-			sbHtml.append( "			<a href='/community/view.do?pseq=" + pseq + "'>" + title + "</a>&nbsp;" );
-			sbHtml.append( "		</div>" );
-			sbHtml.append( "	</div>" );
-
-	}
-%>
-<%
-	// 캠핑꿀팁
-	
-	ArrayList<BoardTO> boardLists6 = (ArrayList)request.getAttribute( "boardLists6" );
-	
-	StringBuffer sbHtml2 = new StringBuffer();
-		for( BoardTO to : boardLists6 ) {
-			int pseq = to.getPseq();
-			String title = to.getTitle();
-			String nick = to.getNick();
-			
-			sbHtml2.append( "	<div class='item'>" );
-			sbHtml2.append( "		<div class='title'>" );
-			sbHtml2.append( "			<a href='/community/view.do?pseq=" + pseq + "'>" + title + "</a>&nbsp;" );
-			sbHtml2.append( "		</div>" );
-			sbHtml2.append( "	</div>" );
-
-	}
-%>
-<% 
-		
-	// 캠핑가자
-	ArrayList<BoardTO> boardLists7 = (ArrayList)request.getAttribute( "boardLists7" );
-	
-	StringBuffer sbHtml3 = new StringBuffer();
-		for( BoardTO to : boardLists7 ) {
-			int pseq = to.getPseq();
-			String title = to.getTitle();
-			String nick = to.getNick();
-			
-			sbHtml3.append( "	<div class='item'>" );
-			sbHtml3.append( "		<div class='title'>" );
-			sbHtml3.append( "			<a href='/community/view.do?pseq=" + pseq + "'>" + title + "</a>&nbsp;" );
-			sbHtml3.append( "		</div>" );
-			sbHtml3.append( "	</div>" );
-
-	}	
-	
-%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -132,7 +71,13 @@
 							<div class="board1">
 								
 								<!-- 캠핑로그 List 내용 -->
-								<%=sbHtml.toString() %>
+								<c:forEach var="board" items="${boardLists5}" varStatus="status">
+									<div class="item">
+										<div class="title">
+											<a href="/community/view.do?pseq=${board.pseq}">${board.title}</a>
+										</div>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -148,7 +93,13 @@
 							<div class="board1">
 							
 								<!--  캠핑꿀팁 List 내용 -->
-								<%=sbHtml2.toString() %>
+								<c:forEach var="board" items="${boardLists6}" varStatus="status">
+									<div class="item">
+										<div class="title">
+											<a href="/community/view.do?pseq=${board.pseq}">${board.title}</a>
+										</div>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
@@ -164,7 +115,13 @@
 							<div class="board1">
 							
 								<!-- 캠핑가자 List 내용 -->
-								<%= sbHtml3.toString() %>
+								<c:forEach var="board" items="${boardLists7}" varStatus="status">
+									<div class="item">
+										<div class="title">
+											<a href="/community/view.do?pseq=${board.pseq}">${board.title}</a>
+										</div>
+									</div>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
