@@ -570,6 +570,10 @@ public class CommServiceImpl implements CommService {
     
 <details>
 <summary><b>CommController.java 코드 확인</b></summary>
+
+- Controller.java가 필요한 비즈니스 로직( Service )를 호출한다.
+- 사용자의 요청을 처리한 후, 지정된 view 모델 객체를 넘겨주는 역할을 수행한다.
+- 요청이 들어오는 URL과 HTTP METHOD 에 대해 정의한다. ( 리턴값을 잘 생각해서 작성 필수 )
 <div markdown="1">
 
 ~~~java
