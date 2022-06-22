@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.camper.community.mapper.CommMapper">
+
+	<!-- 게시판 Mapper.xml -->
+	
+	<!-- 커뮤니티 캠핑로그 / 캠핑꿀팁 / 캠핑가자 List -->
+	<select id="boardList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT PSEQ
+	    		, TITLE
+	            , NICK
+	            , TYPE
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	    FROM p_table
+	    WHERE TYPE = #{type}
+	    ORDER BY PSEQ DESC
+	    LIMIT 5 OFFSET #{offset}
+	</select>
+	
+	<!-- 페이징 위한 게시글 count -->
+	<select id="boardListCount" parameterType="com.camper.community.model.BoardTO" resultType="int" >
+		SELECT COUNT(1)
+		FROM p_table
+		WHERE TYPE = #{type}
+	</select>
+	
+	
+	<!-- 커뮤니티 게시물 보기 -->
+	<select id="viewBoard" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+	    		, NICK
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	            , CONTENT
+	            , TYPE
+	            , PSEQ 
+	    FROM p_table 
+	    WHERE PSEQ = #{pseq}
+	</select>
+	    
+	    
+	<!-- 커뮤니티 게시물 등록 -->
+	<insert id="writeBoard" parameterType="com.camper.community.model.BoardTO">
+		INSERT INTO p_table 
+	    VALUES( 0, #{title}, #{nick}, #{pwd}, #{content}, #{type}, now(), #{heart}, #{preply} )
+	</insert>
+	
+	
+	<!--  커뮤니티 게시물 삭제 확인 -->
+	<delete id="deleteOkBoard" parameterType="com.camper.community.model.BoardTO">
+		DELETE FROM p_table 
+	    WHERE PSEQ = #{pseq}
+	</delete>
+	
+	
+	<!-- 커뮤니티 게시물 수정 -->
+	<select id="modifyBoard" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+				, NICK
+				, CONTENT
+				, TYPE
+				, PSEQ
+		FROM p_table 
+		WHERE PSEQ = #{pseq}
+	</select>
+	
+	
+	<!-- 커뮤니티 게시물 수정 확인 -->
+	 <update id="modifyOkBoard" parameterType="com.camper.community.model.BoardTO">
+		UPDATE p_table SET TITLE = #{title}, CONTENT = #{content} 
+	    WHERE PSEQ = #{pseq}
+	</update>   
+	    
+	    
+	<!-- 공지사항 List -->
+	<select id="noticeList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT NSEQ
+	    		, TITLE
+	            , NICK
+	            , TYPE
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE 
+	    FROM n_board 
+	    WHERE TYPE = #{type}
+	    ORDER BY NSEQ DESC 
+	</select>
+	    
+	    
+	<!-- 공지사항 게시물 보기 -->
+	<select id="noticeView" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT TITLE
+	    		, NICK
+	            , DATE_FORMAT( WDATE, '%y-%m-%d' ) AS WDATE
+	            , CONTENT
+	            , TYPE
+	            , NSEQ
+	    FROM n_board 
+	    WHERE NSEQ = #{nseq}
+	</select>
+	    
+	    
+	<!-- FAQ List -->
+	<select id="faqList" parameterType="com.camper.community.model.BoardTO" resultType="com.camper.community.model.BoardTO">
+		SELECT NSEQ
+	    		, TITLE
+	            , NICK
+	            , CONTENT
+	            , DATE_FORMAT(WDATE, '%Y-%m-%d' ) AS WDATE
+	    FROM n_board 
+	    WHERE TYPE = #{type}
+	    ORDER BY NSEQ DESC  
+	</select>
+	
+</mapper>
