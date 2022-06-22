@@ -1186,8 +1186,8 @@ public class CommController {
   
 ### 5-2 커뮤니티 게시판 View 담당 .jsp 파일 JSTL의 사용
   팀 프로젝트를 진행하면서 수업내용을 참고하여 JSP 소스 내에 JAVA 코드인 스크립틀릿을 사용하였지만  
-  현재는 가독성이 떨어지고 View와 비즈니스 로직의 분리로 JSTL 라이브러리 사용을 권장하므로 
-  유지관리가 더 용이한 JSTL으로 변경하는 작업을 진행하였습니다.
+  현재는 가독성이 떨어지고 JSTL 라이브러리 사용을 권장하므로 유지관리가 더 용이한  
+  JSTL으로 변경하는 작업을 진행하였습니다.
     
 <details>
 <summary><b>JSTL 적용 EX 1) </b></summary>
