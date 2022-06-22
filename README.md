@@ -46,7 +46,7 @@
 #### `Develpment Environment`
 <p align="center">
 <img src="https://user-images.githubusercontent.com/107043926/174970715-7474936d-1e69-4544-8d6a-f29ca9348718.png"
-     width="1000" height="400">
+     width="800" height="400">
 </p>
 
 </br></br>
