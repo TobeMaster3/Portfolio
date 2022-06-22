@@ -35,13 +35,13 @@
 #### `Back-end`
   - Java 11
   - Spring Boot
-  - JSP
   - MyBatis
 
 #### `Front-end`
   - HTML
   - CSS
-  - JavaScript
+  - JavaScript / jQuery
+  - JSTL
   
 #### `Develpment Environment`
 <p align="center">
@@ -96,7 +96,7 @@
 ### 5-1 커뮤니티 게시판 MyBatis 프레임워크로 변경
   SQL 문이 프로그래밍 소스 코드로부터 완전히 분리되어 아래 3가지 기능이 향상되고  
   실무에 많이 사용되므로 변경이 필수라고 생각했고 추가 진행사항으로 결정하고 실행에 옮겼습니다.
-  - 코드의 간결성
+  - 코드의 간결성(= 가독성 향상 )
   - 유지보수성 향상
   - 이식성 향상
   
