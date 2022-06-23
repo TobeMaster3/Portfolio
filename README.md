@@ -91,7 +91,7 @@
 </br>
 
 <details>
-<summary><b>추가 사항 보기</b></summary>
+<summary><b>추가 개선사항 보기</b></summary>
 <div markdown="1">
 
 ### 5-1 커뮤니티 게시판 MyBatis 프레임워크로 변경
