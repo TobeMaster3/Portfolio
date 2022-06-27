@@ -1,6 +1,6 @@
 # :pushpin: CAMPER
 > 캠핑족 혹은 캠핑에 입문하고 싶은 사람들이 정보를 공유 및 획득하기 위한 커뮤니티  
-> url : http://ec2-13-125-250-83.ap-northeast-2.compute.amazonaws.com:8080/
+> URL : http://ec2-13-125-250-83.ap-northeast-2.compute.amazonaws.com:8080/
 
 </br>
 
